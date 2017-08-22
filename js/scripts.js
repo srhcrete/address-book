@@ -7,7 +7,8 @@ function Contact(first, last) {
 Contact.prototype.fullName = function() {
   return this.firstName + ' ' + this.lastName;
 }
-function Address (street, city, state) {
+function Address (type, street, city, state) {
+  this.type = type;
   this.street = street;
   this.city = city;
   this.state = state;
@@ -17,6 +18,15 @@ function Address (street, city, state) {
 $(document).ready(function() {
   $("#add-address").click(function() {
     $("#new-addresses").append('<div class="new-address">' +
+                                 '<div class="form-group">' +
+                                   '<label>Address Type</label>' +
+                                   '<select class="form-control" id="address-type">' +
+                                     '<option>Residential</option>'+
+                                     '<option>Business</option>'+
+                                     '<option>Vacation</option>'+
+                                     '<option>Fallout Shelter</option>'+
+                                     '</select>' +
+                                 '</div>' +
                                  '<div class="form-group">' +
                                    '<label for="new-street">Street</label>' +
                                    '<input type="text" class="form-control new-street">' +
